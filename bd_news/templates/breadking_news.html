@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+        <div class="border border-success rounded p-4 m-4 mx-auto">
+        <h1 class="display-4">Breaking News আজকের সব সংবাদ </h1>
+
+            <div class="row p-4">
+                {% for image_key,image_item in image.items %}
+                    <div class="card m-2 " style="width: 18rem;">
+                      <img class="card-img-top" src="{{ image_item }}" alt="Card image cap">
+                      <div class="card-body">
+                          {% for head_key,head_item in heading.items %}
+                              {% if image_key == head_key %}
+                                  {% for h_link_key,h_link_ittem in artical_link.items %}
+                                    {% if image_key == h_link_key %}
+                                        <h5 class="card-title"><a href="{{ h_link_ittem }}">{{ head_item }}</a></h5>
+                                    {% endif %}
+                                  {% endfor %}
+
+                              {% endif %}
+                          {% endfor %}
+
+                      </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+
+{% endblock content %}

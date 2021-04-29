@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+          {% for keys,values in dict_title.items %}
+              <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ values  }} || {{ keys }}</h5>
+                            {% for body_key,body_value in dict_body.items %}
+                                {% if keys == body_key %}
+                                    <p class="card-text">{{ body_value }}</p>
+                                {% endif %}
+                            {% endfor %}
+
+                    </div>
+                </div>
+          {% endfor %}
+
+
+
+
+{% endblock content %}

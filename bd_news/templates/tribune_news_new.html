@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+    <div class="border border-success rounded p-4 m-4 mx-auto">
+        <h1 class="display-4">Dhakatribune News Only dhaka</h1>
+        <div class="row p-4">
+        {% for im_key,im_value in image.items %}
+            <div class="card m-2 pl-1" style="width: 18rem;">
+              <img class="card-img-top" src="{{ im_value }}" alt="">
+              <div class="card-body">
+                    {% for head_key,head_value in heading.items %}
+                        {% if im_key == head_key %}
+                            <h5 class="card-title">
+                                {% for h_link_key,h_link_item in heading_link.items %}
+                                    {% if im_key == h_link_key %}
+                                        <a href="{{ h_link_item }}">{{ head_value }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </h5>
+                            {% for p_key,p_item in p_tag.items %}
+                                {% if im_key == p_key %}
+                                    <p class="card-text">{{ p_item }}</p>
+                                {% endif %}
+                            {% endfor %}
+
+                        {% endif %}
+                    {% endfor %}
+
+                  {% for time_key,time_value in time.items  %}
+                      {% if im_key == time_key %}
+                          <a href="#" class="btn btn-outline-secondary dtn-sm">{{ time_value }}</a>
+                      {% endif %}
+
+                  {% endfor %}
+
+
+              </div>
+            </div>
+
+        {% endfor %}
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <{% comment %}div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
